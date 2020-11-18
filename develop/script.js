@@ -14,8 +14,8 @@ function generatePassword() {
   var passLength = howLong();
   var charArr = charSelect();
   var password = randomSelecter(charArr, passLength);
-  console.log(charArr);
-  console.log(passLength);
+  printPass(password)
+  
 }
 
 function howLong() {
@@ -67,8 +67,16 @@ function randomSelecter(charArr, passLength) {
     newChar = charArr[Math.floor((Math.random() * charArr.length))];
     password = password.concat(newChar);
   }
-  console.log(password);
-    
+  return password    
+}
+
+function printPass(password) {
+  alert(password);
+  document.getElementById("password").remove();
+  var passDisplay = document.createElement('div');
+  passDisplay.innerHTML = password;
+  document.getElementsByClassName('card-body').appendChild(passDisplay);
+  
 }
 
 
