@@ -11,8 +11,9 @@ function writePassword() {
 }
 
 function generatePassword() {
-  var passLength = howLong()
-  var charArr = charSelect()
+  var passLength = howLong();
+  var charArr = charSelect();
+  var password = randomSelecter(charArr, passLength);
   console.log(charArr);
   console.log(passLength);
 }
@@ -59,6 +60,18 @@ function charSelect() {
 
   return passCharArr;  
 }
+
+function randomSelecter(charArr, passLength) {
+  var password = '';
+  for(i=0; i < passLength; i++) {
+    newChar = charArr[Math.floor((Math.random() * charArr.length))];
+    password = password.concat(newChar);
+  }
+  console.log(password);
+    
+}
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
