@@ -38,27 +38,42 @@ function charSelect() {
   var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
   var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '<', '?', '>', ';', ':'];
-  lowerConfirm = confirm("Press okay to allow lower case letters in your password");
-  if (lowerConfirm === true) {
-    passCharArr = passCharArr.concat(lowerCase);
-  }
-  
-  upperConfirm = confirm("Press okay to allow upper case letters in your password");
-  if (upperConfirm === true) {
-    passCharArr = passCharArr.concat(upperCase);
-  }
-  
-  numbersConfirm = confirm("Press okay to allow numbers in your password");
-  if (numbersConfirm === true) {
-    passCharArr = passCharArr.concat(numbers);
-  }
+  var lowerConfirm = false
+  var upperConfirm = false
+  var numbersConfirm = false
+  var specialCharConfirm = false
 
-  specialCharConfirm = confirm("Press okay to allow special characters in your password");
-  if (specialCharConfirm === true) {
-    passCharArr = passCharArr.concat(specialChar);
-  }
+  while (lowerConfirm === false & upperConfirm === false & numbersConfirm === false & specialCharConfirm === false) {
+    alert('You must allow at least one character type.')
+    
 
-  return passCharArr;  
+    lowerConfirm = confirm("Press okay to allow lower case letters in your password");
+    if (lowerConfirm === true) {
+      passCharArr = passCharArr.concat(lowerCase);
+    }
+  
+    upperConfirm = confirm("Press okay to allow upper case letters in your password");
+    if (upperConfirm === true) {
+      passCharArr = passCharArr.concat(upperCase);
+    }
+  
+    numbersConfirm = confirm("Press okay to allow numbers in your password");
+    if (numbersConfirm === true) {
+      passCharArr = passCharArr.concat(numbers);
+    }
+
+    specialCharConfirm = confirm("Press okay to allow special characters in your password");
+    if (specialCharConfirm === true) {
+      passCharArr = passCharArr.concat(specialChar);
+    }
+
+    
+  }
+  return passCharArr; 
+}
+
+function rebound() {
+  charSelect();
 }
 
 function randomSelecter(charArr, passLength) {
