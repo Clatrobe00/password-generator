@@ -5,7 +5,6 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
@@ -44,9 +43,7 @@ function charSelect() {
   var specialCharConfirm = false
 
   while (lowerConfirm === false & upperConfirm === false & numbersConfirm === false & specialCharConfirm === false) {
-    alert('You must allow at least one character type.')
     
-
     lowerConfirm = confirm("Press okay to allow lower case letters in your password");
     if (lowerConfirm === true) {
       passCharArr = passCharArr.concat(lowerCase);
@@ -67,8 +64,12 @@ function charSelect() {
       passCharArr = passCharArr.concat(specialChar);
     }
 
-    
+    if (lowerConfirm === false & upperConfirm === false & numbersConfirm === false & specialCharConfirm === false) {
+      alert('You must allow at least one character type.');
+    }
+  
   }
+
   return passCharArr; 
 }
 
@@ -84,8 +85,6 @@ function randomSelecter(charArr, passLength) {
   }
   return password    
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
