@@ -73,10 +73,6 @@ function charSelect() {
   return passCharArr; 
 }
 
-function rebound() {
-  charSelect();
-}
-
 function randomSelecter(charArr, passLength) {
   var password = '';
   for(i=0; i < passLength; i++) {
